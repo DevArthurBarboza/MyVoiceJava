@@ -44,7 +44,7 @@ public class main {
                             if (senha.equals(usuario.getSenha())){
                                 String[] listaPost = new String[10];
 
-                                while (opcaoDentro != 9){
+                                for (int k = 0; opcaoDentro != 9; k++){
                                     String publi;
                                     System.out.println("1-Publicar");
                                     System.out.println("2-Ver Publicações");
@@ -55,13 +55,13 @@ public class main {
                                         case 1 :
                                             publi = entry.nextLine();
                                             usuario.setTextoPub(publi);
-                                            listaPost[i] = usuario.getTextoPub();
+                                            listaPost[k] = usuario.getTextoPub();
                                             break;
                                         case 2 :
-                                            for (int j = 0; j < listaPost.length ;j++ ){
-                                               /*if (listaPost[j] == ""){*/
-                                                System.out.println(listaPost[j]);
-
+                                            for (int j = 0; j < listaPost.length ;j++){
+                                                if (!(listaPost[j] == null)) {
+                                                    System.out.println(listaPost[j]);
+                                                }
                                             }
                                             break;
 
