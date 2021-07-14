@@ -49,6 +49,7 @@ public class main {
                                     System.out.println("1-Publicar");
                                     System.out.println("2-Ver Publicações");
                                     System.out.println("3-Configurações do Perfil");
+                                    System.out.println("9-Encerrar sistema");
                                     opcaoDentro = entry.nextInt(); entry.nextLine();
 
                                     switch (opcaoDentro){
@@ -66,6 +67,15 @@ public class main {
                                             break;
 
                                         case 3 :
+                                            int op = 0;
+                                            while ( op != 9){
+                                                System.out.println("1-Mudar nome");
+                                                System.out.println("2-Mudar email");
+                                                System.out.println("3-Mudar senha");
+                                                System.out.println("9-Sair das configurações");
+                                                op = entry.nextInt();
+                                            }
+
 
                                     }
                                 }
