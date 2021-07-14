@@ -9,12 +9,12 @@ public class main {
         String cpf, senha, email,nome;
         Usuario usuario;
         ArrayList <Usuario> lista = new ArrayList<>();
+        System.out.println("Iniciando sistema...");
         while (opcaoFora != 3) {
-            System.out.println("Iniciando sistema...");
             System.out.println("1-Criar Conta");
             System.out.println("2-Logar em Conta Existente");
             System.out.println("3-Finalizar sistema");
-            opcaoFora = entry.nextInt();
+            opcaoFora = entry.nextInt(); entry.nextLine();
 
             switch (opcaoFora){
                 case 1 :
@@ -28,6 +28,7 @@ public class main {
                     senha = entry.nextLine();
                     usuario = new Usuario (cpf,email,senha,nome);
                     lista.add(usuario);
+                    System.out.println("Conta Criada!");
                     break;
 
                 case 2 :
@@ -39,25 +40,36 @@ public class main {
                             System.out.println("Usuario encontrado!");
                             System.out.println("Senha:");
                             senha = entry.nextLine();
+
                             if (senha.equals(usuario.getSenha())){
+                                String[] listaPost = new String[10];
+
                                 while (opcaoDentro != 9){
                                     String publi;
                                     System.out.println("1-Publicar");
                                     System.out.println("2-Ver Publicações");
                                     System.out.println("3-Configurações do Perfil");
-                                    opcaoDentro = entry.nextInt();
+                                    opcaoDentro = entry.nextInt(); entry.nextLine();
 
                                     switch (opcaoDentro){
                                         case 1 :
                                             publi = entry.nextLine();
                                             usuario.setTextoPub(publi);
+                                            listaPost[i] = usuario.getTextoPub();
+                                            break;
+                                        case 2 :
+                                            for (int j = 0; j < listaPost.length ;j++ ){
+                                               /*if (listaPost[j] == ""){*/
+                                                System.out.println(listaPost[j]);
 
+                                            }
+                                            break;
+
+                                        case 3 :
 
                                     }
                                 }
                             }
-
-
                             break;
                         }
                     }
