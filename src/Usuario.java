@@ -1,4 +1,7 @@
+import java.util.Scanner;
+
 public class Usuario {
+    Scanner entry = new Scanner (System.in);
     private int id;
     private String cpf, email, senha,nome;
     private String textoPub;
@@ -11,18 +14,28 @@ public class Usuario {
 
     }
 
-    public void setTextoPub (String texto){
+    public void setTextoPub (){
+        String texto = entry.nextLine();
         this.textoPub = texto;
     }
 
 
-    public void setSenha(String novaSenha){
+    public void setSenha(){
+        System.out.println("Informe a nova senha");
+        String novaSenha = entry.nextLine();
+        this.senha = novaSenha;
     }
 
-    public void setNome (String novoNome){
+    public void setNome (){
+        System.out.println("Informe o novo nome");
+        String novoNome = entry.nextLine();
+        this.nome = novoNome;
     }
 
-    public void setEmail (String novoEmail){
+    public void setEmail (){
+        System.out.printf("Informe o novo email");
+        String novoEmail = entry.nextLine();
+        this.email = novoEmail;
     }
 
     public String getTextoPub(){
@@ -43,6 +56,14 @@ public class Usuario {
 
     public String getEmail(){
         return this.email;
+    }
+
+    public void consultaDados(){
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Email: " + this.email);
+        System.out.println("Senha: " + this.senha);
+        System.out.println("Cpf: " + this.cpf);
+
     }
 }
 
