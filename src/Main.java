@@ -1,8 +1,8 @@
-import java.sql.SQLOutput;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         int opcaoFora = 0, opcaoDentro = 0;
         Scanner entry = new Scanner(System.in);
@@ -29,19 +29,22 @@ public class main {
                     usuario = new Usuario (cpf,email,senha,nome);
                     lista.add(usuario);
                     System.out.println("Conta Criada!");
+                    for (int i = 0; i < lista.size();i++){
+                        System.out.println("CPF: "+lista.get(i).getCpf());
+                        System.out.println("SENHA: "+ lista.get(i).getSenha());
+                    }
                     break;
 
                 case 2 :
                     System.out.println("Informe o cpf referente a sua conta");
                     cpf = entry.nextLine();
                     for (int i = 0; i < lista.size();i++){
-                        usuario = lista.get(i);
-                        if (usuario.getCpf().equals(cpf) ){
+                        if (lista.get(i).getCpf().equals(cpf) ){
                             System.out.println("Usuario encontrado!");
                             System.out.println("Senha:");
                             senha = entry.nextLine();
 
-                            if (senha.equals(usuario.getSenha())){
+                            if (senha.equals(lista.get(i).getSenha())){
                                 String[] listaPost = new String[10];
 
                                 for (int k = 0; opcaoDentro != 9; k++){
@@ -55,8 +58,8 @@ public class main {
                                     switch (opcaoDentro){
                                         case 1 :
                                             publi = entry.nextLine();
-                                            usuario.setTextoPub(publi);
-                                            listaPost[k] = usuario.getTextoPub();
+                                            lista.get(k).setTextoPub(publi);
+                                            listaPost[k] = lista.get(k).getTextoPub();
                                             break;
                                         case 2 :
                                             for (int j = 0; j < listaPost.length ;j++){
