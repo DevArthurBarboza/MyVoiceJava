@@ -38,10 +38,8 @@ public class Main {
                     senha = entry.nextLine();
                     for (int i = 0; i < listaUsuario.size(); i++) {
 
-                        if ((listaUsuario.get(i).getCpf().equals(cpf)) && (senha.equals(listaUsuario.get(i).getSenha()))) {
+                         if ((listaUsuario.get(i).getCpf().equals(cpf)) && (senha.equals(listaUsuario.get(i).getSenha()))) {
                             System.out.println("Usuario encontrado!");
-                            ArrayList <String> listaPost = new ArrayList<>();
-                            int repet = 0;
                             int opcaoDentro = 0;
                             for (int k = 0; opcaoDentro != 9; k++) {
 
@@ -54,14 +52,15 @@ public class Main {
 
                                 switch (opcaoDentro) {
                                     case 1:
+                                        int index = 0;
                                         listaUsuario.get(i).setTextoPub();
+                                        listaUsuario.get(i).setArray(index);
                                         String aux = listaUsuario.get(i).getTextoPub();
-                                        listaPost.add((k-repet),aux);
+                                        index += 1;
                                         break;
                                     case 2:
-                                        repet = repet + 1;
-                                        for (int j = 0; j < listaPost.size(); j++) {
-                                            System.out.println(listaPost.get(j));
+                                        for (int j = 0; j < listaUsuario.get(i).getArray().size(); j++) {
+                                            System.out.println(listaUsuario.get(i).getIArray(j));
                                         }
                                         break;
 
@@ -93,6 +92,7 @@ public class Main {
                             }
                             break;
                         }
+
 
                     }
                     break;

@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Usuario {
@@ -5,14 +7,35 @@ public class Usuario {
     private int id;
     private String cpf, email, senha,nome;
     private String textoPub;
+    private ArrayList <String> lista;
 
     public Usuario (String cpf, String email, String senha, String nome){
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
         this.nome = nome;
-
+        this.lista = new ArrayList<>();
     }
+
+
+
+    //
+    public ArrayList<String> getArray(){
+        return this.lista;
+    }
+
+    public String getIArray(int i){
+        return this.lista.get(i);
+    }
+
+    public void setArray(int repet){
+        this.lista.add(repet,getTextoPub());
+    }
+
+    //
+
+
+
 
     public void setTextoPub (){
         String texto = entry.nextLine();
@@ -33,7 +56,7 @@ public class Usuario {
     }
 
     public void setEmail (){
-        System.out.printf("Informe o novo email");
+        System.out.println("Informe o novo email");
         String novoEmail = entry.nextLine();
         this.email = novoEmail;
     }
